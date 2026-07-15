@@ -183,6 +183,24 @@ document.addEventListener('DOMContentLoaded', function () {
     if (dailySection) ringObserver.observe(dailySection);
 
     // ===================================================
+    // FLOATING SOCIAL SIDEBAR — Show after scrolling past hero
+    // ===================================================
+    const socialFloat = document.getElementById('social-float');
+    const heroSection = document.getElementById('hero');
+    if (socialFloat && heroSection) {
+        const showSocialBar = () => {
+            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight * 0.8;
+            if (window.scrollY > heroBottom) {
+                socialFloat.classList.add('visible');
+            } else {
+                socialFloat.classList.remove('visible');
+            }
+        };
+        window.addEventListener('scroll', showSocialBar, { passive: true });
+        showSocialBar(); // Run once on load
+    }
+
+    // ===================================================
     // NAVBAR SCROLL EFFECT (auto-hide on scroll down)
     // ===================================================
     let lastScrollY = 0;
