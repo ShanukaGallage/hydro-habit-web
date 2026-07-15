@@ -61,7 +61,7 @@ The 28-day heatmap fills in cell-by-cell with a staggered animation. Streak coun
 
 ## 6. Trust & Value (The Closer)
 
-Side-by-side pricing cards comparing Rs. 20,000+ imports vs Rs. 12,000 Hydro-Habit, plus a hardware specs grid (IPX4, USB-C, Wi-Fi, Anti-Conflict).
+Side-by-side pricing cards comparing Rs. 20,000+ imports vs Rs. 6,000 Hydro-Habit, plus a hardware specs grid (IPX4, USB-C, Wi-Fi, Anti-Conflict).
 
 ![Pricing](C:/Users/asus/.gemini/antigravity-ide/brain/60d50663-3dc9-466f-8943-4f1def04f616/pricing_comparison_section_1784118398205.png)
 
