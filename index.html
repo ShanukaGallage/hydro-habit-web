@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydro-Habit — Smart Hydration, Redefined</title>
+    <meta name="description" content="Bring Your Own Vessel. Track Every Sip. Care From Anywhere. The world's first IoT smart coaster with Family Care Mode.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+                <span>Hydro-Habit</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#family-care">Family Care</a>
+                <a href="#daily">Daily Use</a>
+                <a href="#dashboard">Dashboard</a>
+            </div>
+            <a href="#cta-final" class="nav-cta">Pre-Order — Rs. 12,000</a>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="hero">
+        <!-- Animated background particles -->
+        <canvas id="hero-canvas"></canvas>
+
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Now available for pre-order
+        </div>
+
+        <h1 class="hero-headline">
+            <span class="line">Bring Your Own Vessel.</span>
+            <span class="line">Track Every <span class="gradient-text">Sip.</span></span>
+        </h1>
+
+        <p class="hero-sub">
+            The premium IoT smart coaster that passively tracks hydration with millimetre accuracy
+            using <strong>any</strong> mug, glass, or tumbler you already own.
+        </p>
+
+        <div class="hero-cta-row">
+            <a href="#cta-final" class="btn-primary">
+                <span>Get Hydro-Habit</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#features" class="btn-ghost">See How It Works</a>
+        </div>
+
+        <div class="hero-product-wrapper">
+            <div class="product-glow"></div>
+            <img src="assets/product.png" alt="Hydro-Habit Smart Coaster on a wooden desk showing the OLED display reading 800/2000ml with a glowing LED ring around a glass of water" class="hero-product-img" id="hero-product">
+        </div>
+
+        <div class="hero-scroll-hint">
+            <span>Scroll to explore</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ==================== LOGO BAR / SOCIAL PROOF ==================== -->
+    <div class="social-proof-bar">
+        <div class="proof-item">
+            <span class="proof-number" data-target="9">0</span>
+            <span class="proof-label">Smart Features</span>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+            <span class="proof-number" data-target="100">0</span><span class="proof-percent">%</span>
+            <span class="proof-label">Tracking Accuracy</span>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+            <span class="proof-number" data-target="45">0</span><span class="proof-percent">min</span>
+            <span class="proof-label">Smart Reminders</span>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+            <span class="proof-number" data-target="5">0</span>
+            <span class="proof-label">LED Color States</span>
+        </div>
+    </div>
+
+    <!-- ==================== FEATURES SECTION (BYOV + CONTROLS) ==================== -->
+    <section id="features">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span>Core Technology</span>
+        </div>
+
+        <div class="features-hero-text">
+            <h2>No proprietary bottle.<br><span class="gradient-text">No compromises.</span></h2>
+            <p>Hydro-Habit works with what you already love — your favorite coffee mug, water bottle, or tumbler. Place it on the coaster. That's it.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="f-card f-card-large" id="f-byov">
+                <div class="f-card-content">
+                    <div class="f-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2"><rect x="14" y="8" width="20" height="32" rx="4"/><path d="M14 14h20"/><path d="M18 8V4M30 8V4"/></svg>
+                    </div>
+                    <h3>BYOV — Bring Your Own Vessel</h3>
+                    <p>Precision load-cell technology detects every millilitre of fluid change. Electronics never touch the liquid. Use any standard vessel you own.</p>
+                </div>
+                <div class="f-card-visual">
+                    <div class="vessel-grid">
+                        <div class="vessel-item"><div class="vessel-icon mug"></div><span>Coffee Mug</span></div>
+                        <div class="vessel-item"><div class="vessel-icon glass"></div><span>Water Glass</span></div>
+                        <div class="vessel-item"><div class="vessel-icon bottle"></div><span>Bottle</span></div>
+                        <div class="vessel-item"><div class="vessel-icon tumbler"></div><span>Tumbler</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-card" id="f-buttons">
+                <div class="f-icon">
+                    <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="24" r="8"/><circle cx="34" cy="24" r="6"/></svg>
+                </div>
+                <h3>Two-Button Anti-Conflict</h3>
+                <p>START locks your baseline. RESET swaps vessels. Books, phones, and foreign objects never trigger false tracking.</p>
+                <div class="btn-demo">
+                    <div class="demo-btn start">START</div>
+                    <div class="demo-btn reset">RESET</div>
+                </div>
+            </div>
+
+            <div class="f-card" id="f-oled">
+                <div class="f-icon">
+                    <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="14" width="36" height="20" rx="4"/><path d="M14 22h8M14 28h12"/></svg>
+                </div>
+                <h3>OLED Edge Display</h3>
+                <p>Mounted on the front edge — always readable even with a massive mug on top. Real-time stats at a glance.</p>
+                <div class="oled-demo">
+                    <div class="oled-screen">
+                        <span class="oled-val">1,240 <small>/ 2,000 ml</small></span>
+                        <div class="oled-bar"><div class="oled-fill"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-card" id="f-led">
+                <div class="f-icon">
+                    <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="10"/></svg>
+                </div>
+                <h3>Smart LED Ring</h3>
+                <p>5 distinct color states communicate system status instantly from across the room. No phone checking required.</p>
+                <div class="led-demo">
+                    <div class="led-state" style="--led-color: #00e5ff" data-label="Ready"><div class="led-dot"></div></div>
+                    <div class="led-state" style="--led-color: #00e676" data-label="Tracking"><div class="led-dot"></div></div>
+                    <div class="led-state" style="--led-color: #ffd600" data-label="Reminder"><div class="led-dot"></div></div>
+                    <div class="led-state" style="--led-color: #ff5252" data-label="Low"><div class="led-dot"></div></div>
+                    <div class="led-state" style="--led-color: #e040fb" data-label="Goal!"><div class="led-dot"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAMILY CARE (EMOTIONAL CORE) ==================== -->
+    <section id="family-care">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span>The Killer Feature</span>
+        </div>
+
+        <div class="fc-layout">
+            <div class="fc-text-col">
+                <h2>Care from <span class="gradient-text">anywhere.</span></h2>
+                <p class="fc-lead">Most smart bottles are personal gadgets. Hydro-Habit is a <strong>family health monitor</strong>.</p>
+                <p class="fc-body">Know your loved ones are hydrated — whether they're elderly parents, diabetics, or post-surgery patients. Get real-time push alerts on your phone if they haven't had water.</p>
+
+                <div class="fc-scenario">
+                    <div class="scenario-line">
+                        <span class="scenario-icon">📍</span>
+                        <span>You're in <strong>Colombo</strong>, working at the office.</span>
+                    </div>
+                    <div class="scenario-line">
+                        <span class="scenario-icon">🏠</span>
+                        <span>Dad is at home in <strong>Kandy</strong>.</span>
+                    </div>
+                    <div class="scenario-line">
+                        <span class="scenario-icon">⏰</span>
+                        <span>He hasn't had water in <strong>2 hours</strong>.</span>
+                    </div>
+                    <div class="scenario-line alert">
+                        <span class="scenario-icon">🔔</span>
+                        <span>You <strong>instantly</strong> receive a push notification.</span>
+                    </div>
+                </div>
+
+                <blockquote class="fc-quote">
+                    "No marked bottle or phone app can send you an alert when your elderly father hasn't had water in 2 hours."
+                </blockquote>
+            </div>
+
+            <div class="fc-visual-col">
+                <div class="fc-phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="notif-stack">
+                            <div class="notif warning" id="notif-1">
+                                <div class="notif-icon">⚠️</div>
+                                <div class="notif-body">
+                                    <strong>Hydro-Habit Alert</strong>
+                                    <span>Dad hasn't had water in 2 hours. Check on him.</span>
+                                    <span class="notif-time">Just now</span>
+                                </div>
+                            </div>
+                            <div class="notif success" id="notif-2">
+                                <div class="notif-icon">🎉</div>
+                                <div class="notif-body">
+                                    <strong>Goal Reached!</strong>
+                                    <span>Dad completed his daily hydration goal!</span>
+                                    <span class="notif-time">2:30 PM</span>
+                                </div>
+                            </div>
+                            <div class="notif info" id="notif-3">
+                                <div class="notif-icon">💧</div>
+                                <div class="notif-body">
+                                    <strong>Daily Summary</strong>
+                                    <span>Dad drank 2,450ml today (112% of goal)</span>
+                                    <span class="notif-time">8:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="assets/elderly.png" alt="Elderly parent drinking water comfortably at home" class="fc-elderly-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DAILY DESK EXPERIENCE ==================== -->
+    <section id="daily">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span>Your Daily Desk Companion</span>
+        </div>
+
+        <div class="daily-header">
+            <h2>Fits your workflow.<br><span class="gradient-text">Not the other way around.</span></h2>
+        </div>
+
+        <div class="daily-cards">
+            <!-- Card 1: AI Goal -->
+            <div class="d-card d-card-ai">
+                <div class="d-card-inner">
+                    <span class="d-eyebrow">Personalized Intelligence</span>
+                    <h3>Your Goal. Not a Generic One.</h3>
+                    <p>A generic 2,000ml target is wrong for almost everyone. Hydro-Habit dynamically calculates YOUR unique hydration goal.</p>
+                    
+                    <div class="goal-calculator">
+                        <div class="goal-factor">
+                            <span class="factor-icon">⚖️</span>
+                            <div class="factor-info">
+                                <span class="factor-name">Body Weight</span>
+                                <span class="factor-val">35ml × 75kg</span>
+                            </div>
+                            <span class="factor-result">2,625 ml</span>
+                        </div>
+                        <div class="goal-factor">
+                            <span class="factor-icon">🌡️</span>
+                            <div class="factor-info">
+                                <span class="factor-name">Climate Adjustment</span>
+                                <span class="factor-val">Tropical (Sri Lanka)</span>
+                            </div>
+                            <span class="factor-result">+400 ml</span>
+                        </div>
+                        <div class="goal-factor">
+                            <span class="factor-icon">🏃</span>
+                            <div class="factor-info">
+                                <span class="factor-name">Activity Level</span>
+                                <span class="factor-val">Moderate</span>
+                            </div>
+                            <span class="factor-result">+300 ml</span>
+                        </div>
+                        <div class="goal-total">
+                            <span class="total-label">Your Daily Target</span>
+                            <span class="total-val"><span class="counter" data-target="3325">0</span><small>ml</small></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: 45 Min Reminder -->
+            <div class="d-card d-card-reminder">
+                <div class="d-card-inner">
+                    <span class="d-eyebrow">Focus-Friendly</span>
+                    <h3>45-Minute Smart Reminder</h3>
+                    <p>Deep-work hyper-focus is a real problem. After 45 minutes of no sip detected, the coaster gently breaks your focus.</p>
+                    
+                    <div class="reminder-demo">
+                        <div class="reminder-ring">
+                            <svg viewBox="0 0 120 120" class="ring-svg">
+                                <circle cx="60" cy="60" r="54" stroke="rgba(255,255,255,0.1)" stroke-width="4" fill="none"/>
+                                <circle cx="60" cy="60" r="54" stroke="url(#ring-gradient)" stroke-width="4" fill="none" class="ring-progress" stroke-dasharray="339.29" stroke-dashoffset="339.29" stroke-linecap="round"/>
+                                <defs><linearGradient id="ring-gradient"><stop offset="0%" stop-color="#00e5ff"/><stop offset="100%" stop-color="#0070f3"/></linearGradient></defs>
+                            </svg>
+                            <span class="ring-time">45:00</span>
+                        </div>
+                        <div class="reminder-states">
+                            <div class="r-state"><div class="r-dot blue-pulse"></div>Slow blue LED pulse</div>
+                            <div class="r-state"><div class="r-dot"></div>OLED message appears</div>
+                            <div class="r-state"><div class="r-dot"></div>No annoying phone alarms</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DASHBOARD / HEATMAP ==================== -->
+    <section id="dashboard">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span>Build The Habit</span>
+        </div>
+
+        <div class="dash-layout">
+            <div class="dash-text">
+                <h2>28-Day Streak.<br><span class="gradient-text">Your new obsession.</span></h2>
+                <p>Powered by the same psychology that makes GitHub contributions addictive. Watch your heatmap turn green day by day and never break the streak.</p>
+
+                <div class="streak-stats">
+                    <div class="streak-stat">
+                        <span class="s-number"><span class="counter" data-target="14">0</span></span>
+                        <span class="s-label">Day Current Streak</span>
+                    </div>
+                    <div class="streak-stat">
+                        <span class="s-number"><span class="counter" data-target="21">0</span></span>
+                        <span class="s-label">Day Best Streak</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Heatmap -->
+                <div class="heatmap-container">
+                    <div class="heatmap-label">Sun</div>
+                    <div class="heatmap-grid" id="heatmap-grid">
+                        <!-- JS will populate 28 cells -->
+                    </div>
+                    <div class="heatmap-legend">
+                        <span>Less</span>
+                        <div class="legend-cell" style="opacity:0.2"></div>
+                        <div class="legend-cell" style="opacity:0.4"></div>
+                        <div class="legend-cell" style="opacity:0.6"></div>
+                        <div class="legend-cell" style="opacity:0.8"></div>
+                        <div class="legend-cell" style="opacity:1.0"></div>
+                        <span>More</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-visual">
+                <img src="assets/dashboard.png" alt="Hydro-Habit mobile dashboard showing 28-day hydration heatmap and streak tracking" class="dash-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TRUST & VALUE (THE CLOSER) ==================== -->
+    <section id="value">
+        <div class="section-label">
+            <span class="label-line"></span>
+            <span>Premium Value</span>
+        </div>
+
+        <div class="value-header">
+            <h2>Premium tech.<br><span class="gradient-text">Without the premium price.</span></h2>
+        </div>
+
+        <div class="price-compare">
+            <div class="price-card competitor">
+                <span class="price-tag">Imported Smart Bottles</span>
+                <div class="price-amount">
+                    <span class="currency">Rs.</span>
+                    <span class="amount">20,000<sup>+</sup></span>
+                </div>
+                <ul class="price-list">
+                    <li class="con">Proprietary bottle only</li>
+                    <li class="con">No family monitoring</li>
+                    <li class="con">Generic goals</li>
+                    <li class="con">Must wash electronics</li>
+                </ul>
+            </div>
+
+            <div class="price-card ours">
+                <div class="price-badge">Best Value</div>
+                <span class="price-tag">Hydro-Habit Smart Coaster</span>
+                <div class="price-amount">
+                    <span class="currency">Rs.</span>
+                    <span class="amount">12,000</span>
+                </div>
+                <ul class="price-list">
+                    <li class="pro">Works with any vessel (BYOV)</li>
+                    <li class="pro">Family Care Mode</li>
+                    <li class="pro">AI-Personalized goals</li>
+                    <li class="pro">Electronics separate from liquid</li>
+                    <li class="pro">28-Day streak tracking</li>
+                </ul>
+                <a href="#cta-final" class="btn-primary" style="width:100%;justify-content:center;margin-top:1.5rem;">
+                    <span>Pre-Order Now</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Hardware Specs -->
+        <div class="specs-grid">
+            <div class="spec-item">
+                <div class="spec-icon">💧</div>
+                <span class="spec-name">IPX4 Splash Proof</span>
+                <span class="spec-desc">Desk spills? No worries.</span>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon">🔌</div>
+                <span class="spec-name">USB-C Charging</span>
+                <span class="spec-desc">Universal, modern charging.</span>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon">📡</div>
+                <span class="spec-name">Wi-Fi Synced</span>
+                <span class="spec-desc">Real-time cloud data via Firebase.</span>
+            </div>
+            <div class="spec-item">
+                <div class="spec-icon">🛡️</div>
+                <span class="spec-name">Anti-Conflict System</span>
+                <span class="spec-desc">Two-button false-read prevention.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA ==================== -->
+    <section id="cta-final">
+        <div class="cta-bg-glow"></div>
+        <h2>Ready to build a <span class="gradient-text">healthier habit?</span></h2>
+        <p>Join the pre-order and be among the first to experience Hydro-Habit.</p>
+        <a href="#" class="btn-primary btn-large">
+            <span>Pre-Order for Rs. 12,000</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <span class="cta-note">Free shipping within Sri Lanka • 1-year warranty</span>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <svg class="logo-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+                <span>Hydro-Habit</span>
+                <p class="footer-tagline">Smart Hydration, Redefined.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="#features">Features</a>
+                <a href="#family-care">Family Care</a>
+                <a href="#dashboard">Dashboard</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About INCO</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Shipping Info</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 INCO Group Project — University of Kelaniya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
