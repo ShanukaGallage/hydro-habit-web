@@ -1,27 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hydro-Habit — Smart Hydration, Redefined</title>
-    <meta name="description" content="Bring Your Own Vessel. Track Every Sip. Care From Anywhere. The world's first IoT smart coaster with Family Care Mode.">
-    
+    <meta name="description"
+        content="Bring Your Own Vessel. Track Every Sip. Care From Anywhere. The world's first IoT smart coaster with Family Care Mode.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css?v=5">
+
+    <!-- GSAP removed; animations use CSS + IntersectionObserver -->
+
+    <!-- CRITICAL: Force all content visible, overriding any BFCACHE-restored GSAP styles -->
+    <style>
+        /* Nuclear force-visibility for all content sections */
+        .f-card, .d-card, .price-card, .spec-item,
+        .fc-layout, .fc-text-col, .fc-visual-col,
+        .scenario-line, .fc-quote, .fc-phone-frame, .phone-screen,
+        .notif, .notif-stack, .features-hero-text,
+        .daily-header, .daily-cards, .d-card-inner,
+        .goal-calculator, .goal-factor, .goal-total,
+        .reminder-demo, .dash-layout, .dash-text,
+        .streak-stats, .heatmap-container, .dash-visual,
+        .value-header, .price-compare, .specs-grid,
+        .social-proof-bar, .proof-item,
+        .vessel-grid, .vessel-item,
+        .oled-demo, .led-demo, .btn-demo {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+        }
+        /* Ensure text is white inside cards */
+        .f-card h3, .f-card p, .d-card h3, .d-card p,
+        .price-card h3, .spec-name {
+            opacity: 1 !important;
+            visibility: visible !important;
+            color: inherit !important;
+        }
+    </style>
+
+    <!-- Anti-BFCACHE: clear any leftover GSAP inline styles on page show -->
+    <script>
+        window.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                // Page restored from bfcache - clear all GSAP inline opacity styles
+                document.querySelectorAll('[style*="opacity"]').forEach(function(el) {
+                    el.style.opacity = '';
+                    el.style.transform = '';
+                    el.style.visibility = '';
+                });
+                // Re-reveal hero elements
+                document.querySelectorAll('#navbar, .hero-badge, .hero-headline .line, .hero-sub, .hero-cta-row, .hero-product-wrapper, .hero-scroll-hint').forEach(function(el) {
+                    el.classList.add('revealed');
+                });
+            }
+        });
+    </script>
 </head>
+
 <body>
 
     <!-- ==================== NAVBAR ==================== -->
     <nav id="navbar">
         <div class="nav-inner">
             <a href="#" class="nav-logo">
-                <svg class="logo-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+                <svg class="logo-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
+                </svg>
                 <span>Hydro-Habit</span>
             </a>
             <div class="nav-links">
@@ -57,14 +109,18 @@
         <div class="hero-cta-row">
             <a href="#cta-final" class="btn-primary">
                 <span>Get Hydro-Habit</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
             </a>
             <a href="#features" class="btn-ghost">See How It Works</a>
         </div>
 
         <div class="hero-product-wrapper">
             <div class="product-glow"></div>
-            <img src="assets/product.png" alt="Hydro-Habit Smart Coaster on a wooden desk showing the OLED display reading 800/2000ml with a glowing LED ring around a glass of water" class="hero-product-img" id="hero-product">
+            <img src="assets/product.png"
+                alt="Hydro-Habit Smart Coaster on a wooden desk showing the OLED display reading 800/2000ml with a glowing LED ring around a glass of water"
+                class="hero-product-img" id="hero-product">
         </div>
 
         <div class="hero-scroll-hint">
@@ -105,34 +161,53 @@
 
         <div class="features-hero-text">
             <h2>No proprietary bottle.<br><span class="gradient-text">No compromises.</span></h2>
-            <p>Hydro-Habit works with what you already love — your favorite coffee mug, water bottle, or tumbler. Place it on the coaster. That's it.</p>
+            <p>Hydro-Habit works with what you already love — your favorite coffee mug, water bottle, or tumbler. Place
+                it on the coaster. That's it.</p>
         </div>
 
         <div class="features-grid">
             <div class="f-card f-card-large" id="f-byov">
                 <div class="f-card-content">
                     <div class="f-icon">
-                        <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2"><rect x="14" y="8" width="20" height="32" rx="4"/><path d="M14 14h20"/><path d="M18 8V4M30 8V4"/></svg>
+                        <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="14" y="8" width="20" height="32" rx="4" />
+                            <path d="M14 14h20" />
+                            <path d="M18 8V4M30 8V4" />
+                        </svg>
                     </div>
                     <h3>BYOV — Bring Your Own Vessel</h3>
-                    <p>Precision load-cell technology detects every millilitre of fluid change. Electronics never touch the liquid. Use any standard vessel you own.</p>
+                    <p>Precision load-cell technology detects every millilitre of fluid change. Electronics never touch
+                        the liquid. Use any standard vessel you own.</p>
                 </div>
                 <div class="f-card-visual">
                     <div class="vessel-grid">
-                        <div class="vessel-item"><div class="vessel-icon mug"></div><span>Coffee Mug</span></div>
-                        <div class="vessel-item"><div class="vessel-icon glass"></div><span>Water Glass</span></div>
-                        <div class="vessel-item"><div class="vessel-icon bottle"></div><span>Bottle</span></div>
-                        <div class="vessel-item"><div class="vessel-icon tumbler"></div><span>Tumbler</span></div>
+                        <div class="vessel-item">
+                            <div class="vessel-icon mug"></div><span>Coffee Mug</span>
+                        </div>
+                        <div class="vessel-item">
+                            <div class="vessel-icon glass"></div><span>Water Glass</span>
+                        </div>
+                        <div class="vessel-item">
+                            <div class="vessel-icon bottle"></div><span>Bottle</span>
+                        </div>
+                        <div class="vessel-item">
+                            <div class="vessel-icon tumbler"></div><span>Tumbler</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="f-card" id="f-buttons">
                 <div class="f-icon">
-                    <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="24" r="8"/><circle cx="34" cy="24" r="6"/></svg>
+                    <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="18" cy="24" r="8" />
+                        <circle cx="34" cy="24" r="6" />
+                    </svg>
                 </div>
                 <h3>Two-Button Anti-Conflict</h3>
-                <p>START locks your baseline. RESET swaps vessels. Books, phones, and foreign objects never trigger false tracking.</p>
+                <p>START locks your baseline. RESET swaps vessels. Books, phones, and foreign objects never trigger
+                    false tracking.</p>
                 <div class="btn-demo">
                     <div class="demo-btn start">START</div>
                     <div class="demo-btn reset">RESET</div>
@@ -141,30 +216,50 @@
 
             <div class="f-card" id="f-oled">
                 <div class="f-icon">
-                    <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="14" width="36" height="20" rx="4"/><path d="M14 22h8M14 28h12"/></svg>
+                    <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="6" y="14" width="36" height="20" rx="4" />
+                        <path d="M14 22h8M14 28h12" />
+                    </svg>
                 </div>
                 <h3>OLED Edge Display</h3>
-                <p>Mounted on the front edge — always readable even with a massive mug on top. Real-time stats at a glance.</p>
+                <p>Mounted on the front edge — always readable even with a massive mug on top. Real-time stats at a
+                    glance.</p>
                 <div class="oled-demo">
                     <div class="oled-screen">
                         <span class="oled-val">1,240 <small>/ 2,000 ml</small></span>
-                        <div class="oled-bar"><div class="oled-fill"></div></div>
+                        <div class="oled-bar">
+                            <div class="oled-fill"></div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="f-card" id="f-led">
                 <div class="f-icon">
-                    <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="10"/></svg>
+                    <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="24" cy="24" r="16" />
+                        <circle cx="24" cy="24" r="10" />
+                    </svg>
                 </div>
                 <h3>Smart LED Ring</h3>
-                <p>5 distinct color states communicate system status instantly from across the room. No phone checking required.</p>
+                <p>5 distinct color states communicate system status instantly from across the room. No phone checking
+                    required.</p>
                 <div class="led-demo">
-                    <div class="led-state" style="--led-color: #00e5ff" data-label="Ready"><div class="led-dot"></div></div>
-                    <div class="led-state" style="--led-color: #00e676" data-label="Tracking"><div class="led-dot"></div></div>
-                    <div class="led-state" style="--led-color: #ffd600" data-label="Reminder"><div class="led-dot"></div></div>
-                    <div class="led-state" style="--led-color: #ff5252" data-label="Low"><div class="led-dot"></div></div>
-                    <div class="led-state" style="--led-color: #e040fb" data-label="Goal!"><div class="led-dot"></div></div>
+                    <div class="led-state" style="--led-color: #00e5ff" data-label="Ready">
+                        <div class="led-dot"></div>
+                    </div>
+                    <div class="led-state" style="--led-color: #00e676" data-label="Tracking">
+                        <div class="led-dot"></div>
+                    </div>
+                    <div class="led-state" style="--led-color: #ffd600" data-label="Reminder">
+                        <div class="led-dot"></div>
+                    </div>
+                    <div class="led-state" style="--led-color: #ff5252" data-label="Low">
+                        <div class="led-dot"></div>
+                    </div>
+                    <div class="led-state" style="--led-color: #e040fb" data-label="Goal!">
+                        <div class="led-dot"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -180,8 +275,10 @@
         <div class="fc-layout">
             <div class="fc-text-col">
                 <h2>Care from <span class="gradient-text">anywhere.</span></h2>
-                <p class="fc-lead">Most smart bottles are personal gadgets. Hydro-Habit is a <strong>family health monitor</strong>.</p>
-                <p class="fc-body">Know your loved ones are hydrated — whether they're elderly parents, diabetics, or post-surgery patients. Get real-time push alerts on your phone if they haven't had water.</p>
+                <p class="fc-lead">Most smart bottles are personal gadgets. Hydro-Habit is a <strong>family health
+                        monitor</strong>.</p>
+                <p class="fc-body">Know your loved ones are hydrated — whether they're elderly parents, diabetics, or
+                    post-surgery patients. Get real-time push alerts on your phone if they haven't had water.</p>
 
                 <div class="fc-scenario">
                     <div class="scenario-line">
@@ -203,7 +300,8 @@
                 </div>
 
                 <blockquote class="fc-quote">
-                    "No marked bottle or phone app can send you an alert when your elderly father hasn't had water in 2 hours."
+                    "No marked bottle or phone app can send you an alert when your elderly father hasn't had water in 2
+                    hours."
                 </blockquote>
             </div>
 
@@ -239,7 +337,8 @@
                         </div>
                     </div>
                 </div>
-                <img src="assets/elderly.png" alt="Elderly parent drinking water comfortably at home" class="fc-elderly-img">
+                <img src="assets/elderly.png" alt="Elderly parent drinking water comfortably at home"
+                    class="fc-elderly-img">
             </div>
         </div>
     </section>
@@ -261,8 +360,9 @@
                 <div class="d-card-inner">
                     <span class="d-eyebrow">Personalized Intelligence</span>
                     <h3>Your Goal. Not a Generic One.</h3>
-                    <p>A generic 2,000ml target is wrong for almost everyone. Hydro-Habit dynamically calculates YOUR unique hydration goal.</p>
-                    
+                    <p>A generic 2,000ml target is wrong for almost everyone. Hydro-Habit dynamically calculates YOUR
+                        unique hydration goal.</p>
+
                     <div class="goal-calculator">
                         <div class="goal-factor">
                             <span class="factor-icon">⚖️</span>
@@ -290,7 +390,8 @@
                         </div>
                         <div class="goal-total">
                             <span class="total-label">Your Daily Target</span>
-                            <span class="total-val"><span class="counter" data-target="3325">0</span><small>ml</small></span>
+                            <span class="total-val"><span class="counter"
+                                    data-target="3325">0</span><small>ml</small></span>
                         </div>
                     </div>
                 </div>
@@ -301,21 +402,36 @@
                 <div class="d-card-inner">
                     <span class="d-eyebrow">Focus-Friendly</span>
                     <h3>45-Minute Smart Reminder</h3>
-                    <p>Deep-work hyper-focus is a real problem. After 45 minutes of no sip detected, the coaster gently breaks your focus.</p>
-                    
+                    <p>Deep-work hyper-focus is a real problem. After 45 minutes of no sip detected, the coaster gently
+                        breaks your focus.</p>
+
                     <div class="reminder-demo">
                         <div class="reminder-ring">
                             <svg viewBox="0 0 120 120" class="ring-svg">
-                                <circle cx="60" cy="60" r="54" stroke="rgba(255,255,255,0.1)" stroke-width="4" fill="none"/>
-                                <circle cx="60" cy="60" r="54" stroke="url(#ring-gradient)" stroke-width="4" fill="none" class="ring-progress" stroke-dasharray="339.29" stroke-dashoffset="339.29" stroke-linecap="round"/>
-                                <defs><linearGradient id="ring-gradient"><stop offset="0%" stop-color="#00e5ff"/><stop offset="100%" stop-color="#0070f3"/></linearGradient></defs>
+                                <circle cx="60" cy="60" r="54" stroke="rgba(255,255,255,0.1)" stroke-width="4"
+                                    fill="none" />
+                                <circle cx="60" cy="60" r="54" stroke="url(#ring-gradient)" stroke-width="4" fill="none"
+                                    class="ring-progress" stroke-dasharray="339.29" stroke-dashoffset="339.29"
+                                    stroke-linecap="round" />
+                                <defs>
+                                    <linearGradient id="ring-gradient">
+                                        <stop offset="0%" stop-color="#00e5ff" />
+                                        <stop offset="100%" stop-color="#0070f3" />
+                                    </linearGradient>
+                                </defs>
                             </svg>
                             <span class="ring-time">45:00</span>
                         </div>
                         <div class="reminder-states">
-                            <div class="r-state"><div class="r-dot blue-pulse"></div>Slow blue LED pulse</div>
-                            <div class="r-state"><div class="r-dot"></div>OLED message appears</div>
-                            <div class="r-state"><div class="r-dot"></div>No annoying phone alarms</div>
+                            <div class="r-state">
+                                <div class="r-dot blue-pulse"></div>Slow blue LED pulse
+                            </div>
+                            <div class="r-state">
+                                <div class="r-dot"></div>OLED message appears
+                            </div>
+                            <div class="r-state">
+                                <div class="r-dot"></div>No annoying phone alarms
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -333,7 +449,8 @@
         <div class="dash-layout">
             <div class="dash-text">
                 <h2>28-Day Streak.<br><span class="gradient-text">Your new obsession.</span></h2>
-                <p>Powered by the same psychology that makes GitHub contributions addictive. Watch your heatmap turn green day by day and never break the streak.</p>
+                <p>Powered by the same psychology that makes GitHub contributions addictive. Watch your heatmap turn
+                    green day by day and never break the streak.</p>
 
                 <div class="streak-stats">
                     <div class="streak-stat">
@@ -365,7 +482,9 @@
             </div>
 
             <div class="dash-visual">
-                <img src="assets/dashboard.png" alt="Hydro-Habit mobile dashboard showing 28-day hydration heatmap and streak tracking" class="dash-img">
+                <img src="assets/dashboard.png"
+                    alt="Hydro-Habit mobile dashboard showing 28-day hydration heatmap and streak tracking"
+                    class="dash-img">
             </div>
         </div>
     </section>
@@ -448,7 +567,9 @@
         <p>Join the pre-order and be among the first to experience Hydro-Habit.</p>
         <a href="#" class="btn-primary btn-large">
             <span>Pre-Order for Rs. 12,000</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
         </a>
         <span class="cta-note">Free shipping within Sri Lanka • 1-year warranty</span>
     </section>
@@ -457,7 +578,10 @@
     <footer id="footer">
         <div class="footer-grid">
             <div class="footer-brand">
-                <svg class="logo-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+                <svg class="logo-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
+                </svg>
                 <span>Hydro-Habit</span>
                 <p class="footer-tagline">Smart Hydration, Redefined.</p>
             </div>
@@ -485,6 +609,7 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js?v=5"></script>
 </body>
+
 </html>
